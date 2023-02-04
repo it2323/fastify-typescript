@@ -7,7 +7,7 @@ import {
 import fastifyPlugin from "fastify-plugin";
 import fastifyJwt from "@fastify/jwt";
 import { IAuthWithJwtHeader } from "../utils/types";
-import { fastifyErrorWrapper } from "../utils/error";
+import { FastifyErrorWrapper } from "../utils/error";
 
 declare module "@fastify/jwt" {
     interface FastifyJWT {
@@ -37,7 +37,7 @@ const authenticationWithJwt = async (
         reply
             .code(401)
             .type('application/json')
-            .send(fastifyErrorWrapper(401, "API_ACCESS_TOKEN_IS_INVALID_OR_EXPIRED"));
+            .send(FastifyErrorWrapper(401, "API_ACCESS_TOKEN_IS_INVALID_OR_EXPIRED"));
     }
 };
 
