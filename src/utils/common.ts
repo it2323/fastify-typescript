@@ -1,11 +1,11 @@
-import _ from "lodash";
+import _ from 'lodash';
 
 export const validateEmailAddress = (emailAddress: string): boolean => {
-    const regax = new RegExp('[a-z0-9] +@[a-z]+\.[a-z] {2,3}');
+    const regax = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
     return regax.test(emailAddress);
 };
 
-export const validateMbtType = (mbtiType: string): boolean => {
+export const validateMbtiType = (mbtiType: string): boolean => {
     const MBTI_TYPE = [
         'INFP', 'INFJ', 'INTP', 'INTJ',
         'ISFP', 'ISFJ', 'ISTP', 'ISTJ',
@@ -16,7 +16,7 @@ export const validateMbtType = (mbtiType: string): boolean => {
     return _.findIndex(MBTI_TYPE, value => value === mbtiType) !== -1;
 };
 
-export const calidateBloodType = (bloodType: string): boolean => {
+export const validateBloodType = (bloodType: string): boolean => {
     const BLOOD_TYPE = [
         'AB',
         'A',
@@ -43,25 +43,25 @@ export const validateGender = (gender: string): boolean => {
     return _.findIndex(GENDER_TYPE, value => value === gender) !== -1;
 };
 
-export const calidateDate = (date: string): boolean => {
+export const validateDate = (date: string): boolean => {
     const regax = new RegExp('[0-9]{4}-[0-9]{2}-[0-9]{2}');
 
     return regax.test(date);
 };
 
-//bulkQuery
+
 export const bulkInsertValueString = (
-    blukValueRow: number,
-    blukValueColumn: number,
+    bulkValueRow: number,
+    bulkValueColumn: number,
     startValueAt: number = 1
 ) => {
-    return Array(blukValueRow)
-    .fill(0)
-    .map(row => `(${
-        Array(blukValueColumn)
-            .fill(0)
-            .map(column => `$${ startValueAt++ }`)
-            .join(', ')
-    })`)
-    .join(', ');
+    return Array(bulkValueRow)
+        .fill(0)
+        .map(row => `(${
+            Array(bulkValueColumn)
+                .fill(0)
+                .map(column => `$${ startValueAt++ }`)
+                .join(', ')
+        })`)
+        .join(', ');
 }

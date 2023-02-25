@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="utf-8" />
-        <title>Daily API</title>
-        <link rel="stylesheet" href="./style/index_style.css" />
-    </head>
-    <body>
-        <div class="container">
-            index - Daily API
+
+<head>
+    <meta charset="utf-8" />
+    <title>GiYoung Daily API</title>
+    <link rel="stylesheet" href="./styles/index_style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="server-info-box">
+            <p class="info-title">GiYoung Daily API</p>
+            <p class="info-content">GiYoung API 서버 💻</p>
+            <p class="server-time" id="serverTime"></p>
         </div>
-    </body>
+        <div class="theme-mode-button" id="themeModeButton" onclick="onClickChangeTheme()"></div>
+    </div>
+    <script type="text/javascript" src="./scripts/index/theme_script.js"></script>
+    <script type="text/javascript" src="scripts/index/date_time_script.js"></script>
+</body>
+
 </html>

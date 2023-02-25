@@ -1,14 +1,19 @@
-import { FastifyInstance, FastifyServerOptions } from "fastify";
+import {FastifyInstance, FastifyServerOptions} from "fastify";
 import RootRouter from "./root";
+import ApiRouter from "./api";
+import fastifyPlugin from "fastify-plugin";
 
-const FastifyRotuer = async (
-    fastify: FastifyInstance,
-    opts: FastifyServerOptions
+const FastifyRouter = async (
+  fastify: FastifyInstance,
+  opts: FastifyServerOptions
 ) => {
-    fastify.register(RootRouter, {
-        prefix: "/"
-    });
+  fastify.register(RootRouter, {
+    prefix: "/"
+  });
 
+  fastify.register(ApiRouter, {
+    prefix: "/api"
+  });
 }
 
-export default FastifyRotuer;
+export default fastifyPlugin(FastifyRouter);
